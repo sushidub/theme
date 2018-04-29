@@ -2,10 +2,10 @@
 This file is responsible only for providing theme information that are displayed
 in `Apperance > Themes`. Do not write in here any CSS declarations.
 
-Theme Name: {{ theme.name }}
+Theme Name: {{ tonik-theme }}
 Theme URI: {{ theme.url }}
-Description: {{ theme.description }}
-Version: {{ theme.version }}
+Description: {{ tonik-parent-theme }}
+Version: {{ 3.0.0 }}
 Author: {{ theme.author }}
 Author URI: {{ theme.author.url }}
 Text Domain: {{ theme.textdomain }}
