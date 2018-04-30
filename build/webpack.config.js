@@ -26,7 +26,7 @@ module.exports = {
    *
    * @type {string|undefined}
    */
-  // devtool: (isdev && config.settings.sourceMaps) ? 'source-map' : undefined,
+  devtool: (isdev && config.settings.sourceMaps) ? 'source-map' : undefined,
 
   /**
    * Application entry files for building.
@@ -73,17 +73,17 @@ module.exports = {
    *
    * @type {Object}
    */
-  // module: {
-  //   rules: [
-  //     vueRule,
-  //     sassRule,
-  //     fontsRule,
-  //     imagesRule,
-  //     javascriptRule,
-  //     externalFontsRule,
-  //     externalImagesRule,
-  //   ]
-  // },
+  module: {
+    rules: [
+      vueRule,
+      sassRule,
+      fontsRule,
+      imagesRule,
+      javascriptRule,
+      externalFontsRule,
+      externalImagesRule,
+    ]
+  },
 
   /**
    * Common plugins which should run on every build.
@@ -91,18 +91,18 @@ module.exports = {
    * @type {Array}
    */
   plugins: [
-    // new webpack.LoaderOptionsPlugin({ minimize: !isdev }),
-    // new ExtractTextPlugin(config.outputs.css),
+    new webpack.LoaderOptionsPlugin({ minimize: !isdev }),
+    new ExtractTextPlugin(config.outputs.css),
     new CleanPlugin(config.paths.public, { root: config.paths.root }),
-    // new CopyPlugin([{
-    //   context: config.paths.images,
-    //   from: {
-    //     glob: `${config.paths.images}/**/*`,
-    //     flatten: true,
-    //     dot: false
-    //   },
-    //   to: config.outputs.image.filename,
-    // }]),
+    new CopyPlugin([{
+      context: config.paths.images,
+      from: {
+        glob: `${config.paths.images}/**/*`,
+        flatten: true,
+        dot: false
+      },
+      to: config.outputs.image.filename,
+    }]),
   ]
 }
 

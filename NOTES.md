@@ -62,11 +62,15 @@ add_action('theme/index/sidebar', __NAMESPACE__ . '\\render_sidebar');
 assets: [ '*./resources/assets/js/app.js*' ],
 ```
 + the rest of this file is moot since it deals with build tasks that assume the parent theme has theme customizations compiled for entire theme. we do that in the child theme
++ With the absence of any scss/sass compiled with `npm run dev`, the `settings.styleLint` property produces the following error:
+```
+Error: resources/assets/**/*.s?(c|a)ss does not match any files
+```
 
 `- webpack.config.js`
-> NOTE: at the time of posting this, [tonik](https://github.com/tonik) added minor changes to the webpack [`build`](https://github.com/tonik/theme/blob/master/build/webpack.config.js) configuration for [tonik/theme &mdash; v3.0.0](https://github.com/tonik/theme/tree/master). The changes don't affect our customizations here. I'll need to integrate them into the child theme build tho.
-+ remove the `devtool` property from `module.exports` obj since we aren't compiling anything in this theme that needs sourcemaps
-+ same as above, remove the `module` prop and `rules` array
-+ in the `plugins` array, remove `webpack.LoaderOptionsPlugin`, `ExtractTextPlugin`, and `CopyPlugin` instance.
+> NOTE: at the time of posting this, [tonik](https://github.com/tonik) added minor changes to the webpack [`build`](https://github.com/tonik/theme/blob/master/build/webpack.config.js) configuration for [tonik/theme &mdash; v3.0.0](https://github.com/tonik/theme/tree/master). ~~The changes don't affect our customizations here. I'll need to integrate them into the child theme build tho.~~
++ ~~remove the `devtool` property from `module.exports` obj since we aren't compiling anything in this theme that needs sourcemaps~~
++ ~~same as above, remove the `module` prop and `rules` array~~
++ ~~in the `plugins` array, remove `webpack.LoaderOptionsPlugin`, `ExtractTextPlugin`, and `CopyPlugin` instance.~~
 
 

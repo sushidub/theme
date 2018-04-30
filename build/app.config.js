@@ -68,7 +68,7 @@ module.exports = merge({
    * @type {Object}
    */
   externals: {
-    // jquery: 'jQuery',
+    jquery: 'jQuery',
   },
 
   /**
@@ -90,26 +90,29 @@ module.exports = merge({
   settings: {
     sourceMaps: env('SOURCEMAPS', true),
     styleLint: {
-      // context: 'resources/assets'
+      //// @Fork: With the absence of any scss/sass compiled with `npm run dev`,
+      // ...the `settings.styleLint` property produces the following error:
+      // "Error: resources/assets/**/*.s?(c|a)ss does not match any files"
+      //// context: 'resources/assets'
     },
     autoprefixer: {
       browsers: ['last 2 versions', '> 1%'],
+    },
+    browserSync: {
+      host: env('BROWSERSYNC_HOST', 'localhost'),
+      port: env('BROWSERSYNC_PORT', 3000),
+      proxy: env('BROWSERSYNC_PROXY', 'http://localhost:8080/'),
+      open: env('BROWSERSYNC_OPEN', false),
+      reloadDelay: env('BROWSERSYNC_DELAY', 500),
+      files: [
+        '*.php',
+        'app/**/*.php',
+        'resources/templates/**/*.php',
+        'resources/assets/js/**/*.js',
+        'resources/assets/sass/**/*.{sass,scss}',
+        'resources/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
+        'resources/assets/fonts/**/*.{eot,ttf,woff,woff2,svg}'
+      ]
     }
-    // browserSync: {
-    //   host: env('BROWSERSYNC_HOST', 'localhost'),
-    //   port: env('BROWSERSYNC_PORT', 3000),
-    //   proxy: env('BROWSERSYNC_PROXY', 'http://localhost:8080/'),
-    //   open: env('BROWSERSYNC_OPEN', false),
-    //   reloadDelay: env('BROWSERSYNC_DELAY', 500),
-    //   files: [
-    //     '*.php',
-    //     'app/**/*.php',
-    //     'resources/templates/**/*.php',
-    //     'resources/assets/js/**/*.js',
-    //     'resources/assets/sass/**/*.{sass,scss}',
-    //     'resources/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
-    //     'resources/assets/fonts/**/*.{eot,ttf,woff,woff2,svg}'
-    //   ]
-    // }
   }
 }, config)
