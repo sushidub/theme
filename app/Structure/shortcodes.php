@@ -24,14 +24,14 @@ use function Tonik\Theme\App\template;
  */
 function render_button_shortcode($atts, $content)
 {
-    $attributes = shortcode_atts([
-        'href' => '#'
-    ], $atts);
+  $attributes = shortcode_atts([
+    'href' => '#'
+  ], $atts);
 
-    ob_start();
+  ob_start();
 
-    template('shortcodes/button', compact('attributes', 'content'));
+  template('shortcodes/button', compact('attributes', 'content'));
 
-    return ob_get_clean();
+  return ob_get_clean();
 }
-add_shortcode('button', 'Tonik\Theme\App\Structure\render_button_shortcode');
+add_shortcode('button', __NAMESPACE__ . '\\render_button_shortcode');

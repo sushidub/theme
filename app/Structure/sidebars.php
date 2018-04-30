@@ -22,12 +22,12 @@ use function Tonik\Theme\App\config;
  */
 function register_widget_areas()
 {
-    register_sidebar([
-        'id' => 'sidebar',
-        'name' => __('Sidebar', config('textdomain')),
-        'description' => __('Website sidebar', config('textdomain')),
-        'before_title' => '<h5>',
-        'after_title' => '</h5>',
-    ]);
+  register_sidebar([
+    'id' => 'sidebar',
+    'name' => __('Sidebar', config('textdomain')),
+    'description' => __('Website sidebar', config('textdomain')),
+    'before_title' => '<h5>',
+    'after_title' => '</h5>',
+  ]);
 }
-add_action('widgets_init', 'Tonik\Theme\App\Structure\register_widget_areas');
+add_action('widgets_init', __NAMESPACE__ . '\\register_widget_areas');

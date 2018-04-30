@@ -1,6 +1,20 @@
 # Reduction Notes &mdash; *tonik-theme*
 
-> The following is the short list of reduction items to the tonik/theme &mdash; [parent theme](https://github.com/tonik/theme/tree/master). Most of the work here is minimal and only serves to nullify statements or strip out anything that might be visually rendered via parent theme once the 'forthcoming' [child theme](https://github.com/sushidub/tonik-child-theme) is built and compiled. This approach may not be the best workflow in building out tonik/theme with child theme, but it's what made sense at the time I originally pulled the repo down *(mid-March)* from [tonik](https://github.com/tonik). 
+> The following is the short list of reduction items to the tonik/theme &mdash; [parent theme](https://github.com/tonik/theme/tree/master). Most of the work here is minimal and only serves to nullify statements or strip out anything that might be visually rendered via parent theme once the 'forthcoming' [child theme](https://github.com/sushidub/tonik-child-theme) is built and compiled. This approach may not be the best workflow in building out tonik/theme with child theme, but it's what made sense at the time I originally pulled the repo down *(mid-March)* from [tonik](https://github.com/tonik).
+
+<br><br>
+> <span style="color:#FB006D">Required Global update:</span> All namespaces must match [tonik/theme](https://github.com/sushidub/tonik-theme/commit/10a79e6684dfe30698da94db6d49862a5c144381) conventions. Double check we haven't copy/pasted legacy namespace from previous theme work. Also, since namespace paths are used everywhere throughout parent/child theme, might be wise to leverage PHP's `__NAMESPACE__` constant in preventing NS errors/typos.
+
+```php
+namespace Tonik\Theme\App\Setup;
+
+function render_sidebar()
+{
+  get_sidebar();
+}
+add_action('theme/index/sidebar', __NAMESPACE__ . '\\render_sidebar');
+```
+<br>
 
 ## `app`
 `/Http - assets.php`

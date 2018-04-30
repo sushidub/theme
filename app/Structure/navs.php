@@ -21,8 +21,8 @@ use function Tonik\Theme\App\config;
  */
 function register_navigation_areas()
 {
-    register_nav_menus([
-        'primary' => __('Primary', config('textdomain')),
-    ]);
+  register_nav_menus([
+    'primary' => __('Primary', config('textdomain')),
+  ]);
 }
-add_action('after_setup_theme', 'Tonik\Theme\App\Structure\register_navigation_areas');
+add_action('after_setup_theme', __NAMESPACE__ . '\\register_navigation_areas');

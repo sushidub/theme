@@ -24,18 +24,18 @@ use WP_Query;
  */
 function bind_books_service()
 {
-    /**
-     * Binds service for retrieving posts of specific post type.
-     *
-     * @param \Tonik\Gin\Foundation\Theme $theme  Instance of the service container
-     * @param array $parameters  Parameters passed on service resolving
-     *
-     * @return \WP_Post[]
-     */
-    theme()->bind('books', function (Theme $theme, $parameters) {
-        return new WP_Query([
-            'post_type' => 'book',
-        ]);
-    });
+  /**
+   * Binds service for retrieving posts of specific post type.
+   *
+   * @param \Tonik\Gin\Foundation\Theme $theme  Instance of the service container
+   * @param array $parameters  Parameters passed on service resolving
+   *
+   * @return \WP_Post[]
+   */
+  theme()->bind('books', function (Theme $theme, $parameters) {
+    return new WP_Query([
+      'post_type' => 'book',
+    ]);
+  });
 }
-add_action('init', 'Tonik\Theme\App\Setup\bind_books_service');
+add_action('init', __NAMESPACE__ . '\\bind_books_service');

@@ -20,12 +20,12 @@ namespace Tonik\Theme\App\Http;
  */
 function action_callback()
 {
-    // Validate nonce token.
-    check_ajax_referer('my_action_nonce', 'nonce');
+  // Validate nonce token.
+  check_ajax_referer('my_action_nonce', 'nonce');
 
-    // Action logic...
+  // Action logic...
 
-    die();
+  die();
 }
-add_action('wp_ajax_my_action', 'Tonik\Theme\App\Http\action_callback');
-add_action('wp_ajax_nopriv_my_action', 'Tonik\Theme\App\Http\action_callback');
+add_action('wp_ajax_my_action', __NAMESPACE__ . '\\action_callback');
+add_action('wp_ajax_nopriv_my_action', __NAMESPACE__ . '\\action_callback');
