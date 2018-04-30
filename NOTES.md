@@ -1,8 +1,6 @@
-# tonik-theme reduction items
+# Reduction Notes &mdash; *tonik-theme*
 
-The following is the short list of reduction items to the tonik-theme (parent theme). Most of it just works to nullify or strip out anything that might be visually rendered when child theme is built and compiled to its `public` folder. This approach may not be the best workflow in building out tonik with a child theme but its what made sense to me at the time (end of March, 18') I pulled the repo down from tonik. 
-
----
+> The following is the short list of reduction items to the tonik/theme &mdash; [parent theme](https://github.com/tonik/theme/tree/master). Most of the work here is minimal and only serves to nullify or strip out anything that might be visually rendered when the [child theme](https://github.com/sushidub/tonik-child-theme) is built and compiled to its `public` folder. This approach may not be the best workflow in building out tonik/theme with child theme, but it is what made sense to me at the time *(03/18)* I pulled the repo down from [tonik](https://github.com/tonik). 
 
 ## `app`
 `/Http - assets.php`
@@ -23,8 +21,6 @@ The following is the short list of reduction items to the tonik-theme (parent th
 `/Structure - templates.php`
 + remove the whole templates.php file
 
----
-
 ## `resources`
 `/assets/sass - *.scss`
 + remove the entire `sass` folder
@@ -35,17 +31,13 @@ The following is the short list of reduction items to the tonik-theme (parent th
 `/templates/*`
 + most of these files will end up being eclipsed by child theme (child theme file names must match the corresponding parent file name)
 
----
-
 ## `config`
 `- app.php`
 + autoload array needs to match whatever is removed from the app directory
 
 `- app.json`
 + remove everything leaving empty object, e.g. `{}`
-> #### **Why do this?**<br><span style="font-weight:normal;font-size:.85rem;">...*since we're only building one file into `public`, remove this object and add the file into app.config manually. Should more than one file end up needing to be compiled to `public`, then reinstate the obj.*</span>
-
----
+> #### **Why do this?**<br><span style="font-weight:400;font-size:.75rem;">...*since we're only building one file into `public`, remove this object and add the file into app.config manually. Should more than one file end up needing to be compiled to `public`, then reinstate the obj.*</span>
 
 ## `build`
 `- app.config.js`
@@ -57,7 +49,8 @@ assets: [ '*./resources/assets/js/app.js*' ],
 ```
 + the rest of this file is moot since it deals with build tasks that assume the parent theme has theme customizations compiled for entire theme. we do that in the child theme
 
-`- webpack.config.js` *note: as of 3.0.0 [tonik master](https://github.com/tonik/theme/blob/master/build/webpack.config.js) added to and changed some of the webpack build config, all of which can be integrated into child theme build*
+`- webpack.config.js`
+> NOTE: at the time of posting this, [tonik](https://github.com/tonik) added minor changes to the webpack [`build`](https://github.com/tonik/theme/blob/master/build/webpack.config.js) configuration for [tonik/theme &mdash; v3.0.0](https://github.com/tonik/theme/tree/master). The changes don't affect our customizations here. I'll need to integrate them into the child theme build tho.
 + remove the `devtool` property from `module.exports` obj since we aren't compiling anything in this theme that needs sourcemaps
 + same as above, remove the `module` prop and `rules` array
 + in the `plugins` array, remove `webpack.LoaderOptionsPlugin`, `ExtractTextPlugin`, and `CopyPlugin` instance.
