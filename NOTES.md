@@ -1,4 +1,4 @@
-# Reduction Notes &mdash; *tonik-theme*
+# @Fork Notes &mdash; *tonik-theme*
 
 > The following is the short list of reduction items to the tonik/theme &mdash; [parent theme](https://github.com/tonik/theme/tree/master). Most of the work here is minimal and only serves to nullify statements or strip out anything that might be visually rendered via parent theme once the 'forthcoming' [child theme](https://github.com/sushidub/tonik-child-theme) is built and compiled. This approach may not be the best workflow in building out tonik/theme with child theme, but it's what made sense at the time I originally pulled the repo down *(mid-March)* from [tonik](https://github.com/tonik).
 
