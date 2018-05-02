@@ -16,6 +16,10 @@ add_action('theme/index/sidebar', __NAMESPACE__ . '\\render_sidebar');
 ```
 <br>
 
+## `/`
+`- package.json`
++ add normalize-scss since we're not using any of the other framework options that have it included, e.g. Foundation, Bootstrap. We'll import it from the child theme
+
 ## `app`
 `/Http - assets.php`
 + remove statement `wp_enqueue_style` in `register_stylesheets()`
